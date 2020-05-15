@@ -82,4 +82,15 @@ public class CalculatorController {
             return;
     }
 
+    @FXML
+    public void processOpposite (ActionEvent event) {
+        String oppositePressed = ((Button) event.getSource()).getText();
+        System.out.println(oppositePressed);
+        double number_help = Double.parseDouble(display.getText());
+        number_help = -number_help;
+        if (wasFloat)
+            display.setText(String.format("%s", number_help));
+        else
+            display.setText(String.format("%.0f", number_help));
+    }
 }
