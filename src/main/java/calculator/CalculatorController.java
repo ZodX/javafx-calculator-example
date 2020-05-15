@@ -12,7 +12,7 @@ public class CalculatorController {
     private TextField display;
 
     private Calculator calculator;
-    private boolean startNumber = true, isFloat = false, wasFloat = false;
+    private boolean startNumber = true;
     private double number1;
     private String operator = "";
 
@@ -43,10 +43,10 @@ public class CalculatorController {
            }
            double number2 = Double.parseDouble(display.getText());
            double result = calculator.calculate(number1, number2, operator);
-           if (wasFloat)
-               display.setText(String.format("%s", result));
-           else
-               display.setText(String.format("%.0f", result));
+            if (result == (long) result)
+                display.setText(String.format("%d", (long) result));
+            else
+                display.setText(String.format("%s", result));
            operator = "";
         } else {
             if (! operator.isEmpty()) {
@@ -55,7 +55,6 @@ public class CalculatorController {
             number1 = Double.parseDouble(display.getText());
             operator = operatorPressed;
             startNumber = true;
-            isFloat = false;
         }
     }
 
@@ -64,20 +63,16 @@ public class CalculatorController {
         String clearPressed = ((Button) event.getSource()).getText();
         System.out.println(clearPressed);
         startNumber = true;
-        display.setText("0");
+        display.setText("");
         operator = "";
-        isFloat = false;
-        wasFloat = false;
     }
 
     @FXML
     public void processFloat (ActionEvent event) {
         String floatPressed = ((Button) event.getSource()).getText();
         System.out.println(floatPressed);
-        if (!isFloat) {
+        if (display.getText().indexOf(".") == -1) {
             display.setText(display.getText() + ".");
-            isFloat = true;
-            wasFloat = true;
         } else
             return;
     }
@@ -87,10 +82,12 @@ public class CalculatorController {
         String oppositePressed = ((Button) event.getSource()).getText();
         System.out.println(oppositePressed);
         double number_help = Double.parseDouble(display.getText());
-        number_help = -number_help;
-        if (wasFloat)
-            display.setText(String.format("%s", number_help));
+        if (!display.getText().equals("0"))
+            number_help = -number_help;
+        System.out.println(number_help);
+        if (number_help == (long) number_help)
+            display.setText(String.format("%d", (long) number_help));
         else
-            display.setText(String.format("%.0f", number_help));
+            display.setText(String.format("%s", number_help));
     }
 }
