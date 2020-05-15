@@ -42,9 +42,10 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="0" GridPane.rowIndex="4" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" style="-fx-background-color: lightgreen;" text="=" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" style="-fx-background-color: lightgreen;" text="=" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="-" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processClear" style="-fx-background-color: yellow;" text="AC" GridPane.columnIndex="3" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFloat" text="." GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>
