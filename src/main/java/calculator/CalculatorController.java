@@ -25,7 +25,7 @@ public class CalculatorController {
     public void processDigit(ActionEvent event) {
         String digitPressed = ((Button) event.getSource()).getText();
         System.out.println(digitPressed);
-        if (startNumber || display.getText().equals("0")) {
+        if (startNumber || display.getText().equals("")) {
             display.setText(digitPressed);
         } else {
             display.setText(display.getText() + digitPressed);
